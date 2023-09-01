@@ -7,7 +7,7 @@ import { useRouter } from 'next/router'; // Import the useRouter hook
 const TechProfile = () => {
     const { user } = useAuth();
     const urlenv = process.env.NEXT_PUBLIC_URL;
-    const url = `${urlenv}/api/technician/profile/${user.username}/`;
+  const url = user ? `${urlenv}/api/technician/profile/${user.username}/` : null;
     const { response: data1, error: error1 } = useResource(url);
     const router = useRouter(); // Initialize the router object
     useEffect(() => {
